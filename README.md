@@ -1,5 +1,5 @@
-# Vagi
-Vagi SSO Based on CAS
+# Vagi SSO Based on CAS
+
 ###Version 1.0 GA
 
 Blog : http://shimingxy.blog.163.com/
