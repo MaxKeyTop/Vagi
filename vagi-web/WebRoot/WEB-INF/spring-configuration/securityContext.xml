@@ -31,10 +31,6 @@
   </description>
 
   <sec:authentication-manager />
-  
-  <sec:http pattern="/captcha**" security="none" /> 
-  
-  <sec:http pattern="/logon/oauth20/**" security="none" /> 
 
   <sec:http pattern="/status/**" entry-point-ref="notAuthorizedEntryPoint" use-expressions="true" auto-config="true">
     <sec:intercept-url pattern="/status" access="${cas.securityContext.status.access}" />

@@ -36,6 +36,7 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
+        <!--  
         <RollingFile name="perfFileAppender" fileName="perfStats.log" append="true"
                      filePattern="perfStats-%d{yyyy-MM-dd-HH}-%i.log">
             <PatternLayout pattern="%m%n"/>
@@ -45,6 +46,7 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
+        -->
     </Appenders>
     <Loggers>
         <Logger name="org.jasig" level="debug" additivity="false">
@@ -55,12 +57,15 @@
         <Logger name="org.springframework.webflow" level="warn" />
         <Logger name="org.springframework.web" level="debug" />
         <Logger name="org.springframework.security" level="debug" />
-
+		<!--  
         <Logger name="perfStatsLogger" level="info" additivity="false">
             <AppenderRef ref="perfFileAppender"/>
         </Logger>
-
+		
         <Logger name="org.jasig.cas.web.flow" level="info" additivity="true">
+            <AppenderRef ref="file"/>
+        </Logger>-->
+        <Logger name="org.jasig.cas" level="debug" additivity="true">
             <AppenderRef ref="file"/>
         </Logger>
         <Logger name="org.jasig.inspektr.audit.support.Slf4jLoggingAuditTrailManager" level="info">

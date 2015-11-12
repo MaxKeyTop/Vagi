@@ -23,6 +23,7 @@
     <h2><spring:message code="screen.success.header" /></h2>
     <p><spring:message code="screen.success.success" arguments="${principal.id}"/></p>
     <p><spring:message code="screen.success.security" /></p>
+    <p><a href="<c:url value="http://cas.demo.connsec.com/vagi-web-demo"/>">Demo</a></p>
     <p><a href="<c:url value="/logout"/>">Logout</a></p>
     <p><a href="<c:url value="logon/oauth20/bind/sinaweibo"/>">Bind WeiBo</a></p>
     <p><a href="<c:url value="logon/oauth20/bind/qq"/>">Bind QQ</a></p>

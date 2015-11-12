@@ -30,21 +30,14 @@
         the "secure" property).
         You can change the name if you want to make it harder for people to guess.
     </description>
-	<!-- 
-	<bean id="ticketGrantingTicketCookieGenerator" class="org.jasig.cas.web.support.CookieRetrievingCookieGenerator"
-      p:cookieSecure="true"
-      p:cookieMaxAge="-1"
-      p:rememberMeMaxAge="${rememberMeDuration:1209600}"
-      p:cookieName="CASTGC"
-      p:cookiePath="/vagi" />
-    -->  
+
     <bean id="ticketGrantingTicketCookieGenerator" class="org.jasig.cas.web.support.CookieRetrievingCookieGenerator"
           c:casCookieValueManager-ref="cookieValueManager"
           p:cookieSecure="false"
           p:cookieMaxAge="-1"
           p:cookieName="TGC"
           p:cookiePath="/vagi"/>
- 	
+
     <bean id="cookieCipherExecutor" class="org.jasig.cas.util.DefaultCipherExecutor"
           c:secretKeyEncryption="${tgc.encryption.key}"
           c:secretKeySigning="${tgc.signing.key}"/>
