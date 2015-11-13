@@ -1,10 +1,10 @@
 # Vagi SSO Based on CAS
 
-###Version 1.0 GA
+###Version 4.1.1 GA
 
 Blog : http://shimingxy.blog.163.com/
 
-Welcome to the home of  the  Vagi project, Vagi SSO Based on CAS.  
+Welcome to the home of  the  Vagi project, Vagi SSO v4.1.1 BasedBased on CAS v4.1.1.  
 
 Vagi是一款基于<strong>CAS</strong>的Web应用单点登录系统.(cas web https://github.com/Jasig/cas)
 
@@ -14,6 +14,7 @@ Vagi是一款基于<strong>CAS</strong>的Web应用单点登录系统.(cas web h
 - 历史登录的日志
 - 记住登录用户名
 - 记住登录
+- Demo的实现
 
 
 ###登录界面
@@ -21,4 +22,8 @@ Vagi是一款基于<strong>CAS</strong>的Web应用单点登录系统.(cas web h
 
 ###License & Copyright
 
+<<<<<<< HEAD
 Apache License, Version 2.0.
+=======
+Apache License, Version 2.0.
+>>>>>>> origin/master
