@@ -14,7 +14,7 @@ Vagi是一款基于<strong>CAS</strong>的Web应用单点登录系统.(cas web h
 - 历史登录的日志
 - 记住登录用户名
 - 记住登录
-- Demo的实现
+- Demo实现
 
 
 ###登录界面
