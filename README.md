@@ -22,8 +22,5 @@ Vagi是一款基于<strong>CAS</strong>的Web应用单点登录系统.(cas web h
 
 ###License & Copyright
 
-<<<<<<< HEAD
 Apache License, Version 2.0.
-=======
-Apache License, Version 2.0.
->>>>>>> origin/master
+
