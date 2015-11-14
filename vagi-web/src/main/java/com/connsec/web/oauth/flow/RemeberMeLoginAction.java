@@ -22,6 +22,7 @@ import org.jasig.cas.CentralAuthenticationService;
 import org.jasig.cas.authentication.UsernamePasswordCredential;
 import org.jasig.cas.authentication.principal.Service;
 import org.jasig.cas.authentication.principal.WebApplicationService;
+import org.jasig.cas.ticket.ServiceTicket;
 import org.jasig.cas.ticket.TicketGrantingTicket;
 import org.jasig.cas.web.support.WebUtils;
 import org.slf4j.Logger;
@@ -32,6 +33,7 @@ import org.springframework.webflow.execution.RequestContext;
 
 import com.connsec.web.WebContext;
 import com.connsec.web.rememberme.RemeberMeService;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -100,12 +102,12 @@ public final class RemeberMeLoginAction extends AbstractAction {
         final HttpSession session = request.getSession();
 
         // retrieve parameters from web session
-        final Service service = (Service) session.getAttribute(SERVICE);
+        /*final Service service = (Service) session.getAttribute(SERVICE);
         context.getFlowScope().put(SERVICE, service);
         logger.debug("retrieve service: {}", service);
         if (service != null) {
             request.setAttribute(SERVICE, service.getId());
-        }
+        }*/
         restoreRequestAttribute(request, session, THEME);
         restoreRequestAttribute(request, session, LOCALE);
         restoreRequestAttribute(request, session, METHOD);
@@ -114,6 +116,7 @@ public final class RemeberMeLoginAction extends AbstractAction {
         // credentials not null -> try to authenticate
         if (null	!= 	remeberMeString && !remeberMeString.equals("") && remeberMeService.validate(remeberMeString)) {
         	WebContext.setAttribute(RemeberMeService.LOGIN_REMEBERME_SESSION,RemeberMeService.LOGIN_REMEBERME_SESSION);
+        	
             final TicketGrantingTicket tgt = 
                     this.centralAuthenticationService.createTicketGrantingTicket(new UsernamePasswordCredential(remeberMeService.getUsername(remeberMeString),""));
             WebUtils.putTicketGrantingTicketInScopes(context, tgt);

@@ -24,7 +24,7 @@
     </init-param>
     <init-param>
       <param-name>serverName</param-name>
-      <param-value>http://cas.demo.connsec.com/vagi-web-demo/</param-value>
+      <param-value>http://demo.connsec.com/</param-value>
     </init-param>
   </filter>
   <filter-mapping>
@@ -40,7 +40,7 @@
     </init-param>
     <init-param>
       <param-name>serverName</param-name>
-      <param-value>http://cas.demo.connsec.com/vagi-web-demo/</param-value>
+      <param-value>http://demo.connsec.com/</param-value>
     </init-param>
   </filter>
   <filter-mapping>

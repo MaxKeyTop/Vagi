@@ -31,13 +31,13 @@
     <on-start>
         <evaluate expression="initialFlowSetupAction"/>
     </on-start>
-    
-	<!-- #RemeberMe Login Support# -->
+
+	<!-- #RemeberMe Login Support#-->
     <action-state id="remeberMeLoginAction">
         <evaluate expression="remeberMeLoginAction" />
         <transition on="success" to="sendTicketGrantingTicket" />
-        <transition on="error" to="clientOAuthAction" />
-    </action-state>
+        <transition on="error" to="gatewayRequestCheck" />
+    </action-state> 
     
 	<!-- #OAuth Login Support# -->
     <action-state id="clientOAuthAction">
@@ -47,7 +47,6 @@
         <transition on="stop" to="stopWebflow" />
     </action-state>
     <view-state id="stopWebflow" />
-    <!-- #OAuth Login Support# -->
     
     <action-state id="ticketGrantingTicketCheck">
         <evaluate expression="ticketGrantingTicketCheckAction"/>
@@ -58,7 +57,7 @@
 
     <action-state id="terminateSession">
         <evaluate expression="terminateSessionAction.terminate(flowRequestContext)"/>
-        <transition to="generateLoginTicket"/>
+        <transition to="gatewayRequestCheck"/>
     </action-state>
 
     <decision-state id="gatewayRequestCheck">
@@ -111,6 +110,10 @@
         </binder>
         <on-entry>
             <set name="viewScope.commandName" value="'credential'"/>
+
+            <!--
+            <evaluate expression="samlMetadataUIParserAction" />
+            -->
         </on-entry>
         <transition on="submit" bind="true" validate="true" to="captchaValidate"/>
     </view-state>
@@ -118,7 +121,7 @@
 	<action-state id="captchaValidate">
 	   <evaluate expression="captchaValidateAction"/>
 	   <transition on="success" to="realSubmit" />
-	   <transition on="error" to="generateLoginTicket" />
+	   <transition on="error" to="gatewayRequestCheck" />
 	</action-state>
 	
     <action-state id="realSubmit">
@@ -134,8 +137,6 @@
         <transition on="authenticationFailure" to="handleAuthenticationFailure"/>
         <transition on="error" to="generateLoginTicket"/>
     </action-state>
-    
-    
 
     <!-- Enable AUP flow
     <action-state id="acceptableUsagePolicyCheck">

@@ -75,6 +75,8 @@ public final class InitialFlowSetupAction extends AbstractAction {
 
     /** If no authentication request from a service is present, halt and warn the user. */
     private boolean enableFlowOnAbsentServiceRequest = true;
+    
+    public static final String VAGI_SERVICE="vagi_request_service";
 
     @Override
     protected Event doExecute(final RequestContext context) throws Exception {
@@ -95,8 +97,7 @@ public final class InitialFlowSetupAction extends AbstractAction {
                 Boolean.valueOf(this.warnCookieGenerator.retrieveCookieValue(request)));
 
         final Service service = WebUtils.getService(this.argumentExtractors, context);
-
-
+        
         if (service != null) {
             logger.debug("Placing service in context scope: [{}]", service.getId());
 
@@ -107,6 +108,10 @@ public final class InitialFlowSetupAction extends AbstractAction {
                         registeredService.getId());
                 WebUtils.putRegisteredService(context, registeredService);
             }
+            //add by crystal.sea
+            //put service to session
+            request.getSession().setAttribute(VAGI_SERVICE, service);
+            
         } else if (!this.enableFlowOnAbsentServiceRequest) {
             logger.warn("No service authentication request is available at [{}]. CAS is configured to disable the flow.",
                     WebUtils.getHttpServletRequest(context).getRequestURL());

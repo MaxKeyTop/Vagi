@@ -214,10 +214,10 @@ public class AuthenticationViaFormAction {
              * crystal add for RememberMe
              */
             if(credential instanceof RememberMeUsernamePasswordCredential){
-            	logger.info("RememberMeUsernamePasswordCredential ");
-            	 
+            	
             	RememberMeUsernamePasswordCredential rememberMeCredential=(RememberMeUsernamePasswordCredential)credential;
             	if(rememberMeCredential.isRememberMe()){
+            		logger.info("RememberMeUsernamePasswordCredential ");
             		remeberMeService.createRemeberMe(rememberMeCredential.getUsername(), WebUtils.getHttpServletResponse(context));
         			
             	}
