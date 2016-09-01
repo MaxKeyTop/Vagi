@@ -1,0 +1,20 @@
+/*
+ *main---->vagi
+ *cas ---->cas-server-webapp-support
+ *security---->cas-server-security-filter
+ *else    ---->cas-server-webapp
+ *org.jasig.cas.web.flow.AuthenticationViaFormAction
+ *   add RemeberMeService
+ */
+description = "vagi-web"
+
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+dependencies {
+	compile fileTree(dir: '../vagi-lib/', include: '*.jar')
+	
+	compile project(":vagi-core")
+	compile project(":vagi-core-api")
+}
+

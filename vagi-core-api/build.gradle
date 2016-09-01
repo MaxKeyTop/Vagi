@@ -1,0 +1,10 @@
+/*
+ *main----->cas-server-core
+ *xsd ----->cas-server-core
+*/
+description = "vagi-core-api"
+
+dependencies {   
+	//local jars
+	compile fileTree(dir: '../vagi-lib/', include: '*.jar')
+}  
